@@ -1,19 +1,9 @@
-const initialGame = [
-    [null, null, null],
-    [null, null, null],
-    [null, null, null]
-];
 
-function GameBoard({ onSelectSquare, turns }) {
-    let gameBoard = initialGame;
 
-    for (const turn of turns) {
-        const { square, player } = turn;
-        gameBoard[square.row][square.column] = player;
-    }
+function GameBoard({ onSelectSquare, board }) {
     return (
         <ol id="game-board">
-            {gameBoard.map((row, rowIndex) =>
+            {board.map((row, rowIndex) =>
             (<li key={rowIndex}>
                 <ol>
                     {row.map((symbol, colIndex) =>
